@@ -1,0 +1,25 @@
+body {
+    background-color: #232323;
+}
+
+.square {
+    width: 30%;
+    background-color: pink;
+    padding-bottom: 30%;
+    float: left;
+    margin: 3.66px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0px auto;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.wrongSquare {
+    display: none;
+}
