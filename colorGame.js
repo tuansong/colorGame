@@ -1,7 +1,8 @@
 var square = document.getElementsByClassName("square");
-var guessingColor;
+var mainColor;
 var reset = document.getElementById("reset");
 var colors;
+var intro = document.getElementById("gameIntro");
 
 // Generating a random color
 function getRandomColor(){
@@ -26,45 +27,36 @@ function guessingColor(){
     return colors[x];
 }
 
-guessingColor = guessingColor();
+mainColor = guessingColor();
 
 //Display all color 
-document.getElementById("guessColor").textContent = guessingColor;
+document.getElementById("guessColor").textContent = mainColor;
 //Add clicking event
-for (let i = 0; i < colors.length; i++){
-    square[i].style.backgroundColor = colors[i];
-    square[i].addEventListener("click", function(){
-        var selectedColor = this.style.backgroundColor;
-        if(selectedColor == guessingColor){
-              alert("You win");
-          }
-        else {
-            this.classList.add("wrongSquare");
-         }
-    });
+function setupSquare(){
+    for (let i = 0; i < colors.length; i++){
+        square[i].style.backgroundColor = colors[i];
+        square[i].addEventListener("click", function(){
+            var selectedColor = this.style.backgroundColor;
+            if(selectedColor == mainColor){
+                  intro.textContent = "Congrat! You're winner. Click to play again"
+              }
+            else {
+                this.classList.add("wrongSquare");
+             }
+        });
+    }
 }
 
-// function reload() {
-//     colors = createColor(6);
-//     guessingColor = guessingColor();
-// }
 
-//reset.addEventListener("click",reload());
+function restarGame(){
+    colors = createColor(6);
+    mainColor = guessingColor();
+    document.getElementById("guessColor").textContent = mainColor;
+    setupSquare();
+    intro.textContent = "Click to start a new game"
+    for(let i =0; i<colors.length; i++){
+        square[i].classList.remove("wrongSquare");
+    }
+}
 
-// var square = document.querySelectorAll(".square");
-
-// for (var i = 0; i<color.length; i++){
-//     square[i].style.backgroundColor = color[i];
-//     square[i].addEventListener("click", function(){
-//         var guess = this.style.backgroundColor;
-//         if (guess === correctColor){
-//             alert("Correct");
-//         }
-//         else {
-//             alert("Wrong");
-//             this.classList.add("wrongSquare");
-//         }
-//     })
-// }
-
-
+reset.addEventListener("click",restarGame);
