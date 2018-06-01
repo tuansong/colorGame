@@ -1,5 +1,11 @@
 body {
     background-color: #232323;
+    margin: 0px;
+}
+
+header {
+    background-color: rgb(142, 200, 214);
+    text-align: center;
 }
 
 .square {
@@ -10,7 +16,7 @@ body {
     margin: 3.66px;
 }
 
-.container {
+#container {
     max-width: 800px;
     margin: 0px auto;
 }
