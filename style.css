@@ -10,10 +10,11 @@ header {
 
 .square {
     width: 30%;
-    background-color: pink;
+    background-color: inherit;
     padding-bottom: 30%;
     float: left;
     margin: 3.66px;
+    border-radius: 50%;
 }
 
 #container {
@@ -22,10 +23,37 @@ header {
 }
 
 h1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+    text-align: center;
+}
+
+h3 {
+    margin-top: 0px;
     color: white;
     text-align: center;
 }
 
 .wrongSquare {
-    display: none;
+    animation: boxAnimation 3s;
+    animation-fill-mode: forwards;
+}
+
+#reset {
+    color : whitesmoke;
+    border-radius: 5px;
+    width: 100px;
+    background: rgb(255, 0, 98);
+    height: 50px;
+    text-transform: capitalize
+}
+
+#gameIntro {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@keyframes boxAnimation {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }
